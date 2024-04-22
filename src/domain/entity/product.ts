@@ -10,6 +10,10 @@ export default class Product {
     this.validate();
   }
 
+  get id(): string {
+    return this._id;
+  }
+
   get name(): string {
     return this._name;
   }
@@ -30,13 +34,13 @@ export default class Product {
 
   validate(): boolean {
     if (this._id.length === 0) {
-      throw new Error("Id is required");
+      throw new Error('Id is required');
     }
     if (this._name.length === 0) {
-      throw new Error("Name is required");
+      throw new Error('Name is required');
     }
     if (this._price < 0) {
-      throw new Error("Price must be greater than zero");
+      throw new Error('Price must be greater than zero');
     }
     return true;
   }
