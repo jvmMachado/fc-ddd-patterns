@@ -245,4 +245,12 @@ describe('Order repository test', () => {
 
     expect(cretedOrders).toEqual([order1, order2, order3]);
   });
+
+  it('should throw an error when order is not found', async () => {
+    const orderRepository = new OrderRepository();
+
+    expect(async () => {
+      await orderRepository.findById('213124');
+    }).rejects.toThrow('Order not found');
+  });
 });
